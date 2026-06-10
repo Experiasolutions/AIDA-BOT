@@ -1,0 +1,18 @@
+# Netlify Build Configuration
+# Conecta o CI/CD ao GitHub automaticamente.
+# Toda vez que você fizer "git push", o Netlify atualiza a landing page sozinho.
+
+[build]
+  # Aponta exatamente para a pasta com os arquivos HTML estáticos
+  publish = "public"
+  # Sem build — é HTML puro, não precisa de Node.js
+  command = "echo 'Static site — no build needed'"
+
+[build.environment]
+  NODE_VERSION = "18"
+
+# Garante que qualquer rota retorna o index.html (SPA fallback)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
