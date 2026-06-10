@@ -13,23 +13,14 @@ interface:
     externalUrl: "https://experiasolutions.com.br"
     openNewTab: true
 
-# ── TTS: Voz feminina americana nativa (ElevenLabs) ───────────────────────────
-# Para ativar: adicione TTS_API_KEY=<sua_chave_elevenlabs> no Railway
-# Vozes curadas — todas femininas, sotaque americano:
-#   Rachel  : 21m00Tcm4TlvDq8ikWAM  — calorosa, conversacional (ideal para Jordan/Miles/Zack)
-#   Charlotte: XB0fDUnXU5powFXDhCwa  — articulada, profissional (ideal para Alexandra/Hayes)
+# ── TTS: Voz nativa (Open Source / Browser Web Speech API) ────────────────────
+# O LibreChat usará o TTS e STT nativos do navegador (ex: Google US English no Chrome).
+# Isso elimina custos de API na fase Beta. O aluno escolhe a voz preferida no próprio chat.
 speech:
   tts:
-    elevenlabs:
-      apiKey: "${TTS_API_KEY}"
-      model: "eleven_turbo_v2_5"   # Mais rápido e mais barato, qualidade excelente
-      voices:
-        - "21m00Tcm4TlvDq8ikWAM"  # Rachel — calorosa, americana
-        - "XB0fDUnXU5powFXDhCwa"  # Charlotte — articulada, americana
+    external: true
   stt:
-    openai:
-      apiKey: "${OPENAI_API_KEY}"
-      model: "whisper-1"
+    external: true
 
 # ── Memória: Perfil persistente por aluno ─────────────────────────────────────
 memory:
